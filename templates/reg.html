@@ -1,0 +1,113 @@
+{% include 'public_header.html' %}
+    <form  align="center" method="post">
+        <table align="center" border="0">
+            <h1>Registration Form</h1>
+            <tr>
+                  <th>Name:</th>
+                  <td><input type="text" name="name" required ></td>  
+            </tr>
+            <tr>
+                  <th>Last Name:</th>
+                  <td><input type="text" name="lname"></td>  
+            </tr>
+           
+            <tr>
+                <th>phone number:</th>
+                <td><input type="number" maxlength="10" name="number" required></td>  
+          </tr>
+          <tr>
+            <th>email :</th>
+            <td><input type="email" name="email" required ></td> 
+            <td><span id="eerror">Invalid Email</span></td> 
+          </tr>
+          <tr>
+            <th>place</th>
+            <td><input type="text" name="place"></td>  
+          </tr>
+          <tr>
+            <th>pin</th>
+            <td><input type="text" name="pin" maxlength="6" required></td>  
+          </tr>
+          <tr>
+            <th>gender</th>
+            <td><input type="radio" name="gender" value="male">male
+                <input type="radio" name="gender" value="female">female
+            </td>  
+          </tr>
+ 
+          </tr>
+          <tr>
+            <th>Username</th>
+            <td><input type="text" name="uname" required></td>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td><input type="password" name="psw" required></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><input type="Submit" name="submit" value="submit"></td>
+          </tr>
+          <tr>
+ 
+        </table>
+    </form>
+    <script src="
+  https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	  </script>
+  <script>
+	  $(function() {
+      $('#eerror').hide();
+		  $("input[name='fname']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+ 
+		  });
+		  $("input[name='lname']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+ 
+		  });
+		  // $("input[name='dob']").on('input', function(e) {
+		  //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+ 
+		  // });
+ 
+		  $("input[name='number']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^0-9]/g, ''));
+ 
+		  });
+		  $("input[name='pin']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^0-9]/g, ''));
+ 
+		  });
+		  $("input[name='email']").on('input', function(e) {
+				var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+        var vl= this.value.length;
+        if(vl==0){
+          $('#eerror').hide();
+        }
+        else{
+				  if(!re) {
+					  $('#eerror').show();
+          }
+          else {
+            $('#eerror').hide();
+          }
+        }
+		  });
+		  $("input[name='address']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+ 
+		  });
+		  $("input[name='place']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+ 
+		  });
+ 
+		  $("input[name='psw']").on('input', function(e) {
+			  $(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+ 
+		  });
+	  });
+ 
+ 
+  </script>
+    {% include 'footer.html' %}

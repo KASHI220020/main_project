@@ -1,0 +1,25 @@
+{% include 'admin_header.html' %}
+    <h1>View</h1>
+    <center>
+    <table style="width: 1000px;">
+        <tr align="center">
+            <th>Name</th>
+            <th>Place</th>
+            <th>Gender</th>
+            <th>Pin</th>
+            <th>Email</th>
+            <th>Number</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr align="center">
+            <td>{{ row['fname'] }} {{ row['lname'] }}</td>
+            <td>{{ row['place'] }}</td>
+            <td>{{ row['gender'] }}</td>
+            <td>{{ row['pin'] }}</td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['phone'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% include 'footer.html' %}

@@ -1,0 +1,28 @@
+{% include 'admin_header.html' %}
+
+<center>
+    <table style="width: 1000px;">
+        <tr align="center">
+            <th>Damage Request Id</th>
+            <th>Agent ID</th>
+            <th>Policy Request Id</th>
+            <th>Vehicle image</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr align="center">
+            <td>{{ loop.index }} </td>
+            <td>{{ row['agent_id'] }}</td>
+            <td>{{ row['policyrequest_id'] }}</td>
+            <td>{{ row['vehicleimage'] }}</td>
+            <td>{{ row['price'] }}</td>
+            <td>{{ row['date'] }}</td>
+            <td>{{ row['status']}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+{% include 'footer.html' %}

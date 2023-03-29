@@ -1,0 +1,76 @@
+{% include 'admin_header.html' %}
+<form  align="center" method="post">
+
+{% if data['ressss'] %}
+    <table align="center" border="5">
+        <h1>Add Policy</h1>
+        <tr>
+              <th>Policy Type</th>
+              <td><input type="text"  value="{{ data['ressss'][0]['policy']}}" name="p_type"></td>  
+        </tr>
+        <tr>
+              <th>Amount</th>
+              <td><input type="text" value="{{ data['ressss'][0]['amount']}}" name="p_amount"></td>  
+        </tr>
+       
+        <tr>
+            <th>No of Days</th>
+            <td><input type="text" value="{{ data['ressss'][0]['noofdays']}}" name="p_num"></td>  
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="Submit" name="Update" value="submit"></td>
+      </tr>
+      <tr>
+
+    </table>
+
+    {% else %}
+    <table align="center" border="5">
+        <h1>Add Policy</h1>
+        <tr>
+              <th>Policy Type</th>
+              <td><input type="text" name="p_type"></td>  
+        </tr>
+        <tr>
+              <th>Amount</th>
+              <td><input type="text" name="p_amount"></td>  
+        </tr>
+       
+        <tr>
+            <th>No of Days</th>
+            <td><input type="text" name="p_num"></td>  
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="Submit" name="submit" value="submit"></td>
+      </tr>
+      <tr>
+
+    </table>
+    {% endif %}
+</form>
+
+
+    <center>
+        <h1>View policy details</h1>
+        <table border="1" >
+            <tr align="center">
+                <th>Slno</th>
+                <th>Policy name</th>
+                <th>Amount</th>
+                <th>No Of Days</th>
+            </tr>
+            {% for row in data['res']%}
+            <tr align="center">
+
+                <td>{{ loop.index }}</td>
+                <td>{{ row['policy'] }}</td>
+                <td>{{ row['amount'] }}</td>
+                <td>{{ row['noofdays'] }}</td>
+                <td><a href="?action=delete&pid={{row['policy_id']}}">Delete</a></td>
+                <td><a href="?action=update&pid={{row['policy_id']}}">Update</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+{% include 'footer.html' %}
